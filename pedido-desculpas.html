@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedido de Desculpas</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .heart {
+            display: inline-block;
+            font-size: 24px;
+            animation: beat 0.5s infinite alternate;
+            margin-left: 10px;
+        }
+        @keyframes beat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Desculpa, você aceita?</h1>
+    <button class="button" id="yesBtn">Sim</button>
+    <button class="button" id="noBtn">Não</button>
+    <div id="message" style="display:none;">
+        <p>Obrigada por aceitar meu pedido de desculpas! <span class="heart">❤️</span></p>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        const message = document.getElementById('message');
+
+        noBtn.addEventListener('click', () => {
+            // Move the "Não" button to a posição aleatória
+            noBtn.style.position = 'absolute';
+            noBtn.style.top = Math.random() * 80 + 'vh';
+            noBtn.style.left = Math.random() * 80 + 'vw';
+        });
+
+        yesBtn.addEventListener('click', () => {
+            message.style.display = 'block';
+            yesBtn.style.display = 'none';
+            noBtn.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
